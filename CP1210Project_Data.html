@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style>
+fieldset {
+	width: 325px;
+	height: 200px;
+	
+	margin: 100px auto;
+	padding: 20px 20px 9px;
+	
+	background: #4C90A5;
+	
+	border-radius: 3px;
+	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);}
+	
+* {font: 700 16px Arial, sans-serif; text-align:center}
+table {border: separate 3px }
+input {height: 30px;background-color: tan; box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);}
+input:hover {background: #ffff66;
+	box-shadow: 0px 4px #6b54d3;
+	}	
+</style>	
+	<style class="csscreations">
+	/* Basic reset styles*/
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+	/* Better text styling */
+	font: 700 16px Arial, sans-serif;
+}
+
+/* Finally adding some IE9 fallbacks for gradients to finish things up */
+
+/* A nice Background gradient */
+html {
+	height: 100%;
+	background: white;
+	background: radial-gradient(circle, #fff 20%, #ccc);
+	background-size: cover;
+}
+
+/* Using box shadows to create 3D effects */
+#calculator {
+	width: 325px;
+	height: auto;
+	
+	margin: 100px auto;
+	padding: 20px 20px 9px;
+	
+	background: #4C90A5;
+	background: linear-gradient(#9dd2ea, #8bceec);
+	border-radius: 3px;
+	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Top portion */
+.top span.clear {
+	float: left;
+}
+
+/* Inset shadow on the screen to create indent */
+.top .screen {
+	height: 40px;
+	width: 212px;
+	
+	float: right;
+	
+	padding: 0 10px;
+	
+	background: rgba(0,0,255,0.3);
+	border-radius: 3px;
+	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+	
+	/* Typography */
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+/* Clear floats */
+.keys, .top {overflow: hidden;}
+
+/* Applying same to the keys */
+.keys span, .top span.clear {
+	float: left;
+	position: relative;
+	top: 0;
+	
+	cursor: pointer;
+	
+	width: 66px;
+	height: 36px;
+	
+	background: white;
+	border-radius: 3px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	
+	margin: 0 7px 11px 0;
+	
+	color: #888;
+	line-height: 36px;
+	text-align: center;
+	
+	/* prevent selection of text inside keys */
+	user-select: none;
+	
+	/* Smoothing out hover and active states using css3 transitions */
+	transition: all 0.2s ease;
+}
+
+/* Remove right margins from operator keys */
+/* style different type of keys (operators/evaluate/clear) differently */
+.keys span.operator {
+	background: #D2B48C;
+	margin-right: 0;
+}
+
+.keys span.eval {
+	background: #f1ff92;
+	box-shadow: 0px 4px #9da853;
+	color: #888e5f;
+}
+
+.top span.clear {
+	background: #ff9fa8;
+	box-shadow: 0px 4px #ff7c87;
+	color: white;
+}
+
+/* Some hover effects */
+.keys span:hover {
+	background: #9c89f6;
+	box-shadow: 0px 4px #6b54d3;
+	color: white;
+}
+
+.keys span.eval:hover {
+	background: #abb850;
+	box-shadow: 0px 4px #717a33;
+	color: #ffffff;
+}
+
+.top span.clear:hover {
+	background: #f68991;
+	box-shadow: 0px 4px #d3545d;
+	color: white;
+}
+
+/* Simulating "pressed" effect on active state of the keys by 
+removing the box-shadow and moving the keys down a bit */
+.keys span:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+.keys span.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+
+.top span.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
+#cap {text-align: center;font-size:25px; color:blue}
+#cap2 {text-align: center;font-size:25px; color:blue}
+</style>
+
+
+
+</head>
+	
+	<body>
+	
+	<div id="calculator">
+	<!-- Screen and clear key -->
+	<div class="top">
+		<span class="clear">C</span>
+		<div class="screen" id="screen" ></div>
+	</div>
+	
+	<div class="keys">
+		<!-- operators and other keys -->
+		<span onclick="seven()">7</span>
+		<span onclick="eight()">8</span>
+		<span onclick="nine()">9</span>
+		<span class="operator" onclick="plus()">+</span>
+		<span onclick="four()">4</span>
+		<span onclick="five()">5</span>
+		<span onclick="six()">6</span>
+		<span class="operator" onclick="minus()">-</span>
+		<span onclick="one()">1</span>
+		<span onclick="two()">2</span>
+		<span onclick="three()">3</span>
+		<span class="operator" onclick="divide()">÷</span>
+		<span onclick="zero()">0</span>
+		<span onclick="point()">.</span>
+		<span class="eval" onclick="equal()">=</span>
+		<span class="operator" onclick="multiply()">x</span>
+	</div>
+	<div id="cap"> CALCULATOR </div>
+</div>
+
+<center>
+<form>
+<fieldset>
+<table >
+<tr><td> </td>
+<td><div >Your<br>Weight</div></td>
+<td><div >Miles<br>Run</div></td>
+<td><div >Calories<br>Burned</div></td> <td> </td>
+<td><input width="40px"type="button" onclick="meFunction()" value="Calculate"/></td>
+</tr>
+<tr><td> </td>
+<td><div >
+<input type="text" id="myWeight" size="4" />
+</div></td>
+<td><div ><input type="text" id ="myDistance" size="4" />
+</div></td>
+<td><div ><input type="text" id ="Fdiff" size="6"/>
+</div></td> <td> </td>
+<td><div ><input type="Reset" VALUE="Reset" />
+</div></tr>
+</table>
+<table >
+<tr>
+<td><div style = "align:center">My Comment</div></td>
+<td><input type="text" id ="comment" id="comment" size="50"></td>
+</tr>
+
+</table>
+<br/>
+<div><h2 id="cap2"> CALORIE CALCULATOR </h2></div>
+</fieldset>
+
+</form>
+</center>
+<script src="1.js"></script>
+			</body>
+</html>
